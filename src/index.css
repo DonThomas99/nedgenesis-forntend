@@ -1,0 +1,63 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-ng-dark text-white;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  ::-webkit-scrollbar {
+    width: 5px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-ng-dark;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply bg-ng-accent rounded-full;
+  }
+}
+
+@layer components {
+  .section-padding {
+    @apply px-6 md:px-12 lg:px-24 py-24;
+  }
+
+  .section-label {
+    @apply inline-block text-xs font-semibold tracking-widest uppercase text-ng-cyan mb-3;
+  }
+
+  .section-title {
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight;
+  }
+
+  .section-subtitle {
+    @apply text-ng-text text-lg mt-4 max-w-2xl leading-relaxed;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-7 py-3.5 bg-gradient-to-r from-ng-accent to-ng-cyan
+           text-white font-semibold rounded-xl transition-all duration-300
+           hover:scale-105 hover:shadow-xl hover:shadow-ng-accent/30 active:scale-95;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center gap-2 px-7 py-3.5 border border-ng-border
+           text-ng-text font-semibold rounded-xl transition-all duration-300
+           hover:border-ng-accent hover:text-white hover:bg-ng-accent/10;
+  }
+
+  .card {
+    @apply bg-ng-card border border-ng-border rounded-2xl;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-ng-accent to-ng-cyan bg-clip-text text-transparent;
+  }
+}
