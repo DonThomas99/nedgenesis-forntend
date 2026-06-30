@@ -7,12 +7,12 @@ export default {
   theme: {
     extend: {
       colors: {
-        'ng-dark': '#07090f',
-        'ng-card': '#0d1220',
-        'ng-border': '#1a2540',
-        'ng-accent': '#6c63ff',
-        'ng-cyan': '#00d4ff',
-        'ng-text': '#8b9bbf',
+        'ng-dark': '#0a1f0f',
+        'ng-card': '#102918',
+        'ng-border': '#1e4d2a',
+        'ng-accent': '#0BDA51',
+        'ng-cyan': '#4ade80',
+        'ng-text': '#7dc99a',
       },
       animation: {
         'marquee': 'marquee 35s linear infinite',

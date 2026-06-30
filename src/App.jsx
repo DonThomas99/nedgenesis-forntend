@@ -21,7 +21,7 @@ export default function App() {
             border: '1px solid #1a2540',
             borderRadius: '12px',
           },
-          success: { iconTheme: { primary: '#6c63ff', secondary: '#fff' } },
+          success: { iconTheme: { primary: '#0BDA51', secondary: '#fff' } },
           error: { iconTheme: { primary: '#ef4444', secondary: '#fff' } },
         }}
       />
