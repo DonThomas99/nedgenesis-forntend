@@ -2,13 +2,30 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  /* Night mode (default) — gray and its shades */
+  --ng-page-rgb: 18 18 18;
+  --ng-page-text-rgb: 255 255 255;
+  --ng-page-muted-rgb: 125 201 154;
+  --ng-footer-rgb: 38 38 38;
+}
+
+[data-theme='light'] {
+  /* Light mode — off-white background, dark text for readability */
+  --ng-page-rgb: 244 243 238;
+  --ng-page-text-rgb: 20 26 22;
+  --ng-page-muted-rgb: 74 92 82;
+  --ng-footer-rgb: 255 255 255;
+}
+
 @layer base {
   html {
     scroll-behavior: smooth;
   }
 
   body {
-    @apply bg-ng-dark text-white;
+    @apply bg-ng-page text-ng-page-text;
+    transition: background-color 0.3s ease, color 0.3s ease;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
@@ -17,7 +34,7 @@
     width: 5px;
   }
   ::-webkit-scrollbar-track {
-    @apply bg-ng-dark;
+    @apply bg-ng-page;
   }
   ::-webkit-scrollbar-thumb {
     @apply bg-ng-accent rounded-full;
@@ -34,11 +51,11 @@
   }
 
   .section-title {
-    @apply text-3xl md:text-4xl lg:text-5xl font-bold text-white leading-tight;
+    @apply text-3xl md:text-4xl lg:text-5xl font-bold text-ng-page-text leading-tight;
   }
 
   .section-subtitle {
-    @apply text-ng-text text-lg mt-4 max-w-2xl leading-relaxed;
+    @apply text-ng-page-muted text-lg mt-4 max-w-2xl leading-relaxed;
   }
 
   .btn-primary {

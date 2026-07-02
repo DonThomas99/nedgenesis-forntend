@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
-import { HiMenuAlt3, HiX } from 'react-icons/hi'
+import { HiMenuAlt3, HiX, HiSun, HiMoon } from 'react-icons/hi'
 
 const NAV_LINKS = [
   { label: 'Home', href: '#home' },
@@ -10,7 +10,19 @@ const NAV_LINKS = [
   { label: 'Contact', href: '#contact' },
 ]
 
-export default function Navbar() {
+function ThemeToggle({ theme, toggleTheme, className = '' }) {
+  return (
+    <button
+      onClick={toggleTheme}
+      aria-label={theme === 'dark' ? 'Switch to light mode' : 'Switch to dark mode'}
+      className={`w-9 h-9 rounded-lg bg-ng-border hover:bg-ng-accent/20 flex items-center justify-center transition-colors ${className}`}
+    >
+      {theme === 'dark' ? <HiSun size={16} className="text-ng-text" /> : <HiMoon size={16} className="text-ng-text" />}
+    </button>
+  )
+}
+
+export default function Navbar({ theme, toggleTheme }) {
   const [scrolled, setScrolled] = useState(false)
   const [menuOpen, setMenuOpen] = useState(false)
 
@@ -31,7 +43,7 @@ export default function Navbar() {
       animate={{ y: 0, opacity: 1 }}
       transition={{ duration: 0.6 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? 'bg-ng-dark/90 backdrop-blur-xl border-b border-ng-border shadow-lg shadow-black/20' : 'bg-transparent'
+        scrolled ? 'bg-ng-page/90 backdrop-blur-xl border-b border-ng-border shadow-lg shadow-black/20' : 'bg-transparent'
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-12 flex items-center justify-between h-16 md:h-20">
@@ -51,7 +63,7 @@ export default function Navbar() {
             <button
               key={link.href}
               onClick={() => handleNavClick(link.href)}
-              className="text-ng-text hover:text-white text-sm font-medium transition-colors duration-200 relative group"
+              className="text-ng-page-muted hover:text-ng-page-text text-sm font-medium transition-colors duration-200 relative group"
             >
               {link.label}
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-ng-accent to-ng-cyan transition-all duration-300 group-hover:w-full" />
@@ -60,20 +72,24 @@ export default function Navbar() {
         </nav>
 
         {/* CTA */}
-        <div className="hidden md:block">
+        <div className="hidden md:flex items-center gap-4">
+          <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
           <button onClick={() => handleNavClick('#contact')} className="btn-primary text-sm">
             Get a Quote
           </button>
         </div>
 
-        {/* Mobile Menu Toggle */}
-        <button
-          onClick={() => setMenuOpen(!menuOpen)}
-          className="md:hidden text-white p-1"
-          aria-label="Toggle menu"
-        >
-          {menuOpen ? <HiX size={24} /> : <HiMenuAlt3 size={24} />}
-        </button>
+        {/* Mobile controls */}
+        <div className="flex items-center gap-3 md:hidden">
+          <ThemeToggle theme={theme} toggleTheme={toggleTheme} />
+          <button
+            onClick={() => setMenuOpen(!menuOpen)}
+            className="text-ng-page-text p-1"
+            aria-label="Toggle menu"
+          >
+            {menuOpen ? <HiX size={24} /> : <HiMenuAlt3 size={24} />}
+          </button>
+        </div>
       </div>
 
       {/* Mobile Menu */}

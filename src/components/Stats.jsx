@@ -44,8 +44,8 @@ export default function Stats() {
               <p className="text-4xl md:text-5xl font-black gradient-text leading-none">
                 <CountUp target={stat.value} suffix={stat.suffix} active={inView} />
               </p>
-              <p className="text-white font-semibold mt-3">{stat.label}</p>
-              <p className="text-ng-text text-sm mt-1">{stat.description}</p>
+              <p className="text-ng-page-text font-semibold mt-3">{stat.label}</p>
+              <p className="text-ng-page-muted text-sm mt-1">{stat.description}</p>
             </motion.div>
           ))}
         </div>

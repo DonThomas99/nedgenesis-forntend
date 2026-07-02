@@ -62,13 +62,13 @@ export default function Hero() {
             <motion.div {...fadeUp(0.65)} className="flex items-center gap-6 mt-12 flex-wrap">
               <div className="flex -space-x-3">
                 {['#0BDA51', '#4ade80', '#86efac', '#34d399'].map((color, i) => (
-                  <div key={i} className="w-9 h-9 rounded-full border-2 border-ng-dark flex items-center justify-center text-xs font-bold" style={{ background: color }}>
+                  <div key={i} className="w-9 h-9 rounded-full border-2 border-ng-page flex items-center justify-center text-xs font-bold" style={{ background: color }}>
                     {['A', 'B', 'C', 'D'][i]}
                   </div>
                 ))}
               </div>
-              <p className="text-ng-text text-sm">
-                <span className="text-white font-semibold">{hero.trust_text}</span>
+              <p className="text-ng-page-muted text-sm">
+                <span className="text-ng-page-text font-semibold">{hero.trust_text}</span>
               </p>
             </motion.div>
           </div>
@@ -103,7 +103,7 @@ export default function Hero() {
       </div>
 
       <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 1.5 }} className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
-        <span className="text-ng-text text-xs tracking-widest uppercase">Scroll</span>
+        <span className="text-ng-page-muted text-xs tracking-widest uppercase">Scroll</span>
         <motion.div animate={{ y: [0, 8, 0] }} transition={{ duration: 1.5, repeat: Infinity }} className="w-0.5 h-8 bg-gradient-to-b from-ng-accent to-transparent" />
       </motion.div>
     </section>

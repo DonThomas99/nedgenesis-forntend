@@ -8,10 +8,13 @@ import Testimonials from './components/Testimonials'
 import Contact from './components/Contact'
 import Socials from './components/Socials'
 import Footer from './components/Footer'
+import { useTheme } from './hooks/useTheme'
 
 export default function App() {
+  const { theme, toggleTheme } = useTheme()
+
   return (
-    <div className="bg-ng-dark text-white font-sans overflow-x-hidden">
+    <div className="bg-ng-page text-ng-page-text font-sans overflow-x-hidden">
       <Toaster
         position="top-right"
         toastOptions={{
@@ -25,7 +28,7 @@ export default function App() {
           error: { iconTheme: { primary: '#ef4444', secondary: '#fff' } },
         }}
       />
-      <Navbar />
+      <Navbar theme={theme} toggleTheme={toggleTheme} />
       <main>
         <Hero />
         <Stats />

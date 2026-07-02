@@ -28,7 +28,7 @@ export default function Footer() {
   const scrollToTop = () => window.scrollTo({ top: 0, behavior: 'smooth' })
 
   return (
-    <footer className="border-t border-ng-border bg-ng-card">
+    <footer className="border-t border-ng-border bg-ng-footer transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-6 md:px-12 py-16">
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-10">
           {/* Brand */}
@@ -41,7 +41,7 @@ export default function Footer() {
                 NED<span className="gradient-text">GENESIS</span>
               </span>
             </div>
-            <p className="text-ng-text text-sm leading-relaxed max-w-sm">
+            <p className="text-ng-page-muted text-sm leading-relaxed max-w-sm">
               NEDGENESIS LLP is a global digital agency specializing in web-app development
               and digital marketing services that help businesses grow and thrive online.
             </p>
@@ -66,13 +66,13 @@ export default function Footer() {
 
           {/* Quick Links */}
           <div>
-            <h4 className="text-white font-semibold text-sm mb-4 tracking-wider uppercase">Quick Links</h4>
+            <h4 className="text-ng-page-text font-semibold text-sm mb-4 tracking-wider uppercase">Quick Links</h4>
             <ul className="space-y-3">
               {QUICK_LINKS.map((link) => (
                 <li key={link.label}>
                   <button
                     onClick={() => document.querySelector(link.href)?.scrollIntoView({ behavior: 'smooth' })}
-                    className="text-ng-text hover:text-white text-sm transition-colors"
+                    className="text-ng-page-muted hover:text-ng-page-text text-sm transition-colors"
                   >
                     {link.label}
                   </button>
@@ -83,13 +83,13 @@ export default function Footer() {
 
           {/* Services */}
           <div>
-            <h4 className="text-white font-semibold text-sm mb-4 tracking-wider uppercase">Services</h4>
+            <h4 className="text-ng-page-text font-semibold text-sm mb-4 tracking-wider uppercase">Services</h4>
             <ul className="space-y-3">
               {SERVICE_LINKS.map((s) => (
                 <li key={s}>
                   <button
                     onClick={() => document.querySelector('#services')?.scrollIntoView({ behavior: 'smooth' })}
-                    className="text-ng-text hover:text-white text-sm transition-colors text-left"
+                    className="text-ng-page-muted hover:text-ng-page-text text-sm transition-colors text-left"
                   >
                     {s}
                   </button>
@@ -101,12 +101,12 @@ export default function Footer() {
 
         {/* Bottom bar */}
         <div className="mt-12 pt-8 border-t border-ng-border flex flex-col sm:flex-row items-center justify-between gap-4">
-          <p className="text-ng-text text-sm">
+          <p className="text-ng-page-muted text-sm">
             © {new Date().getFullYear()} NEDGENESIS LLP. All rights reserved.
           </p>
           <button
             onClick={scrollToTop}
-            className="flex items-center gap-2 text-ng-text hover:text-white text-sm transition-colors group"
+            className="flex items-center gap-2 text-ng-page-muted hover:text-ng-page-text text-sm transition-colors group"
           >
             Back to top
             <div className="w-7 h-7 rounded-lg border border-ng-border group-hover:border-ng-accent flex items-center justify-center transition-colors">

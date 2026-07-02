@@ -49,15 +49,15 @@ export default function BrandsCarousel() {
 
         {brands.length > 0 && (
           <motion.div initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}} transition={{ duration: 0.6, delay: 0.2 }} className="relative overflow-hidden" onMouseEnter={pause} onMouseLeave={resume}>
-            <div className="absolute left-0 top-0 bottom-0 w-24 z-10 pointer-events-none" style={{ background: 'linear-gradient(to right, #07090f, transparent)' }} />
-            <div className="absolute right-0 top-0 bottom-0 w-24 z-10 pointer-events-none" style={{ background: 'linear-gradient(to left, #07090f, transparent)' }} />
+            <div className="absolute left-0 top-0 bottom-0 w-24 z-10 pointer-events-none" style={{ background: 'linear-gradient(to right, rgb(var(--ng-page-rgb)), transparent)' }} />
+            <div className="absolute right-0 top-0 bottom-0 w-24 z-10 pointer-events-none" style={{ background: 'linear-gradient(to left, rgb(var(--ng-page-rgb)), transparent)' }} />
             <div ref={trackRef} className="flex animate-marquee py-4" style={{ width: 'max-content' }}>
               {items.map((brand, i) => <BrandCard key={`${brand._id}-${i}`} brand={brand} />)}
             </div>
           </motion.div>
         )}
 
-        <motion.p initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}} transition={{ duration: 0.6, delay: 0.4 }} className="text-center text-ng-text text-sm mt-6">
+        <motion.p initial={{ opacity: 0 }} animate={inView ? { opacity: 1 } : {}} transition={{ duration: 0.6, delay: 0.4 }} className="text-center text-ng-page-muted text-sm mt-6">
           Hover to pause · Click a card to visit the brand
         </motion.p>
       </div>

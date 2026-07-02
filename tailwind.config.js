@@ -13,6 +13,12 @@ export default {
         'ng-accent': '#0BDA51',
         'ng-cyan': '#4ade80',
         'ng-text': '#7dc99a',
+        // Theme-aware page chrome (background + text sitting directly on it).
+        // Cards keep the fixed colors above in both themes — only these move.
+        'ng-page': 'rgb(var(--ng-page-rgb) / <alpha-value>)',
+        'ng-page-text': 'rgb(var(--ng-page-text-rgb) / <alpha-value>)',
+        'ng-page-muted': 'rgb(var(--ng-page-muted-rgb) / <alpha-value>)',
+        'ng-footer': 'rgb(var(--ng-footer-rgb) / <alpha-value>)',
       },
       animation: {
         'marquee': 'marquee 35s linear infinite',
